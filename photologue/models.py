@@ -172,6 +172,8 @@ class Gallery(models.Model):
     title = models.CharField(_('title'),
                              max_length=50,
                              unique=True)
+    title_slug = models.SlugField(_('title slug'), unique=True,
+                                  help_text=_('A "slug" is a unique URL-friendly title for an object.'))
     slug = models.SlugField(_('title slug'),
                             unique=True,
                             help_text=_('A "slug" is a unique URL-friendly title for an object.'))
@@ -509,6 +511,8 @@ class Photo(ImageModel):
     title = models.CharField(_('title'),
                              max_length=60,
                              unique=True)
+    title_slug = models.SlugField(_('title slug'), unique=True,
+                                  help_text=_('A "slug" is a unique URL-friendly title for an object.'))
     slug = models.SlugField(_('slug'),
                             unique=True,
                             help_text=_('A "slug" is a unique URL-friendly title for an object.'))

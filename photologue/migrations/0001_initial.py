@@ -25,7 +25,6 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(blank=True, verbose_name='description')),
                 ('is_public', models.BooleanField(help_text='Public galleries will be displayed in the default views.', verbose_name='is public', default=True)),
                 ('tags', photologue.models.TagField(max_length=255, help_text='Django-tagging was not found, tags will be treated as plain text.', blank=True, verbose_name='tags')),
-                ('sites', models.ManyToManyField(blank=True, verbose_name='sites', null=True, to='sites.Site')),
             ],
             options={
                 'get_latest_by': 'date_added',
@@ -67,7 +66,6 @@ class Migration(migrations.Migration):
                 ('date_added', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date added')),
                 ('is_public', models.BooleanField(help_text='Public photographs will be displayed in the default views.', verbose_name='is public', default=True)),
                 ('tags', photologue.models.TagField(max_length=255, help_text='Django-tagging was not found, tags will be treated as plain text.', blank=True, verbose_name='tags')),
-                ('sites', models.ManyToManyField(blank=True, verbose_name='sites', null=True, to='sites.Site')),
             ],
             options={
                 'get_latest_by': 'date_added',

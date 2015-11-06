@@ -47,7 +47,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='photo',
-            name='models',
+            name='title_slug',
             field=models.SlugField(help_text='A "slug" is a unique URL-friendly title for an object.', verbose_name='title slug', unique=True),
             preserve_default=True
         )

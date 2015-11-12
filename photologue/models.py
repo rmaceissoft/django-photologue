@@ -249,12 +249,6 @@ class Gallery(models.Model):
         return self.photos.filter(is_public=True)\
                           .exclude(sites__id__in=self.sites.all())
 
-    @property
-    def title_slug(self):
-        warnings.warn(
-            DeprecationWarning("`title_slug` field in Gallery is being renamed to `slug`. Update your code."))
-        return self.slug
-
 
 class ImageModel(models.Model):
     image = models.ImageField(_('image'),

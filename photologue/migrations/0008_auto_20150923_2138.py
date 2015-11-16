@@ -26,29 +26,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name='gallery',
-            name='slug',
-            field=models.SlugField(help_text='A "slug" is a unique URL-friendly title for an object.', verbose_name='title slug', null=True),
-            preserve_default=True
-        ),
-        migrations.AddField(
-            model_name='photo',
-            name='slug',
-            field=models.SlugField(help_text='A "slug" is a unique URL-friendly title for an object.', verbose_name='title slug', null=True),
-            preserve_default=True
-        ),
         migrations.RunPython(init_slugs, reverse_code=dummy_reverse),
-        migrations.AlterField(
-            model_name='gallery',
-            name='slug',
-            field=models.SlugField(help_text='A "slug" is a unique URL-friendly title for an object.', verbose_name='title slug', unique=True),
-            preserve_default=True
-        ),
-        migrations.AlterField(
-            model_name='photo',
-            name='slug',
-            field=models.SlugField(help_text='A "slug" is a unique URL-friendly title for an object.', verbose_name='title slug', unique=True),
-            preserve_default=True
-        )
     ]

@@ -28,5 +28,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(add_sort_value_to_gallery_photos, reverse_code=delete_sort_value_to_gallery_photos)
+        # migrations.RunPython(add_sort_value_to_gallery_photos, reverse_code=delete_sort_value_to_gallery_photos)
     ]

@@ -203,6 +203,12 @@ class Gallery(models.Model):
     def __str__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        if self.slug is None:
+            self.slug = slugify(self.title)
+        self.title_slug = self.slug
+        super(Gallery, self).save(*args, **kwargs)
+
     def get_absolute_url(self):
         return reverse('photologue:pl-gallery', args=[self.slug])
 
@@ -535,6 +541,7 @@ class Photo(ImageModel):
     def save(self, *args, **kwargs):
         if self.slug is None:
             self.slug = slugify(self.title)
+        self.title_slug = self.slug
         super(Photo, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -575,12 +582,6 @@ class Photo(ImageModel):
             if photo == self:
                 matched = True
         return None
-
-    @property
-    def title_slug(self):
-        warnings.warn(
-            DeprecationWarning("`title_slug` field in Photo is being renamed to `slug`. Update your code."))
-        return self.slug
 
 
 @python_2_unicode_compatible

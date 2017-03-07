@@ -518,6 +518,7 @@ class Photo(ImageModel):
                             help_text=_('A "slug" is a unique URL-friendly title for an object.'))
     caption = models.TextField(_('caption'),
                                blank=True)
+    alt_tag = models.TextField(_('Alt Tag'), blank=True)
     date_added = models.DateTimeField(_('date added'),
                                       default=now)
     is_public = models.BooleanField(_('is public'),

@@ -518,7 +518,23 @@ class Photo(ImageModel):
                             help_text=_('A "slug" is a unique URL-friendly title for an object.'))
     caption = models.TextField(_('caption'),
                                blank=True)
-    alt_tag = models.TextField(_('Alt Tag'), blank=True)
+    alt_tag = models.CharField(
+        max_length=200,
+        blank=True,
+        help_text=_("""
+            <p style="font-weight: 900;">Keep it simple</p>
+            <p>Master the art of saying a lot with a little.</p>
+            <p style="font-weight: 900;">Be descriptive yet succinct</p>
+            <p>Be strategic with your descriptions.</p>
+            <p style="font-weight: 900;">Consider the text surrounding the image</p>
+            <p>Placing images with alt tags near relevant text will help create a coherent
+            experience for non-visual users</p>
+            <p style="font-weight: 900;">Utilize keywords to help your site rank better in search</p>
+            <p>It's a great strategy to use your site's keywords in order to help your images rank</p>
+            <p>Be careful not to misuse your keywords as it could end up hurting your SEO instead of helping</p>
+        """)
+    )
+
     date_added = models.DateTimeField(_('date added'),
                                       default=now)
     is_public = models.BooleanField(_('is public'),

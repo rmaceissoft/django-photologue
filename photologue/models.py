@@ -520,7 +520,7 @@ class Photo(ImageModel):
                                blank=True)
     alt_tag = models.CharField(
         max_length=200,
-        blank=True,
+        blank=False,
         help_text=_("""
             <p style="font-weight: 900;">Keep it simple</p>
             <p>Master the art of saying a lot with a little.</p>
